@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import "./app.css";
 
-const API_URL = "http://localhost:5001";
-const USER = "axwhyzee";
+const API_URL = process.env.REACT_APP_API_URL;
+const USER = process.env.REACT_APP_USER;
 const TOP_N = 8;
 
 function get_obj_url(key) {
