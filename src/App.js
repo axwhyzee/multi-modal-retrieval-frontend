@@ -88,7 +88,7 @@ function App() {
       </section>
       <section class="nav-tabs">
         {results && (<span class="tab" onClick={() => setShowResults(results)}>ALL</span>)}
-        {results && Object.keys(results).map((key) => <span class="tab" onClick={setShowResults({[key]: results[key]})}>{key}</span>)}
+        {results && Object.keys(results).map((key) => <span class="tab" onClick={() => setShowResults({[key]: results[key]})}>{key}</span>)}
       </section>
       <div class="grid">
         {
