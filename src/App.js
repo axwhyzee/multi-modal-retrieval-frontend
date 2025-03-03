@@ -63,7 +63,7 @@ function App() {
 
       const params = new URLSearchParams({ text: query, user: USER, top_n: TOP_N });
 
-      setResults({});
+      setResults(null);
       setLoading(true);
 
       const req = await fetch(`${API_URL}/query/text?${params}`)
