@@ -107,18 +107,24 @@ function App() {
               expanded === null ? <></> :
               expanded.doctype === DOCTYPE_TEXT ? (
                 <div class="expanded-content-container">
-                  <div id="scrollable-container" class="expanded-content expanded-text">
+                  <div class="expanded-content expanded-text">
                     {
                       expanded.splits.map(([chunk, i]) => (
-                          <pre class={highlightTextChunk===i && "text-highlight"}>{chunk}</pre>
+                          <pre id={`text-chunk-${i}`} class={highlightTextChunk===i && "text-highlight"}>{chunk}</pre>
                         ))
                     }
+                    <div id='abc-123' ref={xRef}>ABC123</div>
                   </div>
                   <div class="row-chunks">
                       {
                         expanded.chunk_vals.map((chunk, i) => (
                           <a class="chunk" onClick={() => setHighlightTextChunk(i)}>
-                            <pre class="chunk-text">{chunk}</pre>
+                            <pre 
+                              class="chunk-text"
+                              onClick={() => {
+                                document.getElementById(`text-chunk-${i}`).scrollIntoView({ behavior: "smooth", block: "start" })
+                              }}
+                            >{chunk}</pre>
                           </a>
                         ))
                       }
