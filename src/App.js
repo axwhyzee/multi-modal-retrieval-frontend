@@ -96,7 +96,9 @@ function App() {
       {/* Navigation (for results) */}
       <section class="nav-tabs">
         {results && (<span class="tab" onClick={() => setShowResults(results)}>ALL</span>)}
-        {results && Object.keys(results).map((key) => <span class="tab" onClick={() => setShowResults({[key]: results[key]})}>{key}</span>)}
+        {results && Object.keys(results).map((key) => (
+          <span class="tab" onClick={() => setShowResults({[key]: results[key]})}>{key}</span>
+        ))}
       </section>
 
       {/* Expanded Doc */}
@@ -110,10 +112,12 @@ function App() {
                   <div class="expanded-content expanded-text">
                     {
                       expanded.splits.map(([chunk, i]) => (
-                          <pre id={`text-chunk-${i}`} class={highlightTextChunk===i && "text-highlight"}>{chunk}</pre>
+                          <pre 
+                            id={`text-chunk-${i}`} 
+                            class={highlightTextChunk===i && "text-highlight"}
+                          >{chunk}</pre>
                         ))
                     }
-                    <div id='abc-123' ref={xRef}>ABC123</div>
                   </div>
                   <div class="row-chunks">
                       {
@@ -190,6 +194,7 @@ function App() {
                   <div class="doc-header">
                     <div class="doc-icon">
                     {
+                      // doc icon
                       doctype === "IMAGE" ? (
                         <i class="icon-orange fa-solid fa-file-image"></i>
                       ) : doctype === "TEXT" ? (
