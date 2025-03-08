@@ -189,17 +189,17 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 20px 200px;
+  padding: 0 200px;
   z-index: 100;
+  transition: .3s;
+  overflow: hidden;
 }
 
 .expanded-inner-container {
   width: 100%;
   height: 100%;
   padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 .expanded-text {
@@ -207,6 +207,20 @@ ul {
   padding: 80px;
   overflow: scroll;
   font-size: 18px;
+}
+
+.expanded-text pre {
+  text-wrap: auto;
+  display: inline;
+}
+
+.expanded-image {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .expanded-close-btn {
@@ -222,6 +236,7 @@ ul {
   outline: none;
   border: 0;
   transition: .5s;
+  z-index: 200;
 }
 
 .expanded-close-btn:hover {
@@ -244,16 +259,16 @@ ul {
 
 .row-chunks {
   width: 25%;
-  height: 100% !important;
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  height: 20%;
   padding: 0 5px 0 20px;
 }
 
 .chunk {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  overflow-x: clip;
 }
 
 .chunk-thumb {
@@ -270,9 +285,11 @@ ul {
   border-radius: 10px;
   font-size: 16px;
   padding: 20px;
+  margin: 0;
   border-radius: 8px;
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.05);
   text-align: left;
+  text-wrap: auto;
 }
 
 .chunk:hover {
