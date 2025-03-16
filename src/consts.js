@@ -22,7 +22,7 @@ export const ELEMENT = {
 }
 
 
-export const API_URL = "http://localhost:5004" // process.env.REACT_APP_API_URL;
+export const API_URL = process.env.REACT_APP_API_URL;
 export const USER = process.env.REACT_APP_USER;
 export const TOP_N = 10;
 
