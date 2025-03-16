@@ -205,8 +205,8 @@ ul {
 .expanded-text {
   background-color: white;
   padding: 80px;
-  overflow: scroll;
-  font-size: 18px;
+  overflow-y: scroll;
+  font-size: 15px;
 }
 
 .expanded-text pre {
@@ -231,7 +231,7 @@ ul {
   font-size: 16px;
   font-weight: bold;
   position: absolute;
-  top: 20px;
+  top: 80px;
   right: 20px;
   outline: none;
   border: 0;
@@ -249,12 +249,33 @@ ul {
   height: 100%;
   display: flex;
   justify-content: center;
+  padding-top: 60px;
 }
 
 .expanded-content {
   max-width: 75%;
   height: 100%;
   box-shadow: 1px 1px 8px 8px rgba(0,0,0,0.05);
+}
+
+.expanded-content pre {
+  width: 100% !important;
+  background: transparent !important;
+  word-wrap: break-word;
+}
+
+.expanded-filename {
+  width: 100vw;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgb(42, 42, 42);
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  font-size: 18px;
 }
 
 .row-chunks {
@@ -269,6 +290,7 @@ ul {
 .chunk {
   margin-bottom: 20px;
   overflow-x: clip;
+  position: relative;
 }
 
 .chunk-thumb {
@@ -290,6 +312,21 @@ ul {
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.05);
   text-align: left;
   text-wrap: auto;
+  word-wrap: break-word;
+}
+
+.chunk-extra-btm-padding {
+  padding-bottom: 30px;
+}
+
+.chunk-code {
+  background-color: white !important;
+  border-radius: 10px;
+  font-size: 10px !important;
+  padding: 20px !important;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.05);
 }
 
 .chunk:hover {
@@ -299,6 +336,59 @@ ul {
 .text-highlight {
   background-color: yellow;
   transition: 1s;
+}
+
+.chunk-meta {
+  background-color: rgb(180, 1, 1);
+  color: white;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  bottom: 1px;
+  left: 1px;
+  font-size: 12px;
+}
+
+/*
+ --------
+ dropdown
+ --------
+ */
+
+ .dropdown {
+  margin-left: 30px;
+  height: 40px;
+ }
+
+ .dropdown-btn {
+  width: 150px;
+  height: 40px;
+  outline: none;
+  border: 1px solid rgb(213, 213, 213);
+  background: transparent;
+ }
+
+ .dropdown-btn:hover {
+  cursor: pointer
+ }
+
+.dropdown-option {
+  width: 150px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(213, 213, 213);
+  padding: 5px;
+  font-size: 14px;
+}
+
+.dropdown-option:hover {
+  cursor: pointer;
+}
+
+.dropdown-option input {
+  margin-right: 10px;
 }
 
 /*

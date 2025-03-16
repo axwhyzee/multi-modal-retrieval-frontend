@@ -1,6 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL;
-const USER = process.env.REACT_APP_USER;
-const TOP_N = 10;
+import { API_URL, USER, TOP_N } from "./consts";
 
 
 export function get_obj_url(key) {
@@ -17,8 +15,17 @@ export async function fetch_txt(key) {
   return await blob.text();
 }
 
-export async function make_text_query(text) {
-  const params = new URLSearchParams({ text: text, user: USER, top_n: TOP_N });
+export async function make_text_query(text, exclude=null) {
+  const params = new URLSearchParams({ text: text, user: USER, top_n: TOP_N, exclude_elems: exclude });
   const req = await fetch(`${API_URL}/query/text?${params}`)
+  const docs = await req.json();
+  for (let i=0; i<docs.length; i++) {
+    docs[i].doc_suffix = get_file_ext(docs[i].doc_key);
+  }
+  return docs;
+}
+
+export async function list_objs() {
+  const req = await fetch(`${API_URL}/list`)
   return await req.json();
 }
